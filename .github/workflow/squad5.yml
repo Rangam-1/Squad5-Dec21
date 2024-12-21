@@ -1,1 +1,27 @@
+name: Build and Push NodeJs
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Build and push the first Dockerfile
+      - name: Build and push Image 1
+        run: |
+          docker build -t my-repo/image1:latest -f Dockerfile1 .
+          docker push my-repo/image1:latest
+
+      # Build and push the second Dockerfile
+      - name: Build and push Image 2
+        run: |
+          docker build -t my-repo/image2:latest -f Dockerfile2 .
+          docker push my-repo/image2:latest
