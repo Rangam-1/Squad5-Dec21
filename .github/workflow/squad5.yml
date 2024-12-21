@@ -17,7 +17,7 @@ jobs:
       # Build and push the first Dockerfile
       - name: Build and push Image 1
         run: |
-          docker build -t my-repo/image1:latest -f Dockerfile1 .
+          docker build -t my-repo/image1:latest -f Dockerfile .
           docker push my-repo/image1:latest
 
       # Build and push the second Dockerfile
